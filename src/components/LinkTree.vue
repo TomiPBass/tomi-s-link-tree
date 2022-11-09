@@ -3,36 +3,12 @@
         <div class="linktree_container">
           <ul class="linktree">
             <LinK
-                :link="links.youtube.link"
-                :image="links.youtube.image"
-                :web="links.youtube.web"
+                v-for="website in links"
+                :key="website.web"
+                :link="website.link"
+                :image="website.image"
+                :web="website.web"
             />
-            <LinK
-                :link="links.facebook.link"
-                :image="links.facebook.image"
-                :web="links.facebook.web"
-            />
-            <LinK
-                :link="links.ig.link"
-                :image="links.ig.image"
-                :web="links.ig.web"
-            />
-            <LinK
-                :link="links.spotify.link"
-                :image="links.spotify.image"
-                :web="links.spotify.web"
-            />
-            <LinK
-                :link="links.linkedin.link"
-                :image="links.linkedin.image"
-                :web="links.linkedin.web"
-            />
-            <LinK
-                :link="links.tiktok.link"
-                :image="links.tiktok.image"
-                :web="links.tiktok.web"
-            />
-
           </ul>
         </div>
         <FormContainer/>
@@ -44,46 +20,51 @@
     import LinK from '@/components/LinK.vue'
     import { reactive } from 'vue'
 
-const links = reactive({
-    youtube: {
+const links = [
+    {
         link: "https://www.youtube.com/tomipvideos",
-        image: "/src/imgs/Youtube Icon.jpg",
+        image: "/src/imgs/Youtube.png",
         web: "Youtube"
     },
-    facebook: {
+    {
         link: "https://www.facebook.com/TomiPVideos",
-        image: "/src/imgs/Facebook Icon.jpg",
+        image: "/src/imgs/Facebook.png",
         web: "Facebook"
     },
-    ig: {
+    {
         link: "https://www.instagram.com/tomipizur/",
-        image: "/src/imgs/Instagram Icon.jpg",
+        image: "/src/imgs/Instagram.png",
         web: "Instagram"
     },
-    spotify: {
+    {
         link: "https://open.spotify.com/artist/525zfSkeWFp2fd2zf2CwOD?si=K22wymtISISCGCTFJIMxcA",
-        image: "/src/imgs/Spotify Icon.jpg",
+        image: "/src/imgs/Spotify.png",
         web: "Spotify"
     },
-    linkedin: {
+    {
         link: "https://www.linkedin.com/in/tom%C3%A1%C5%A1-piz%C3%BAr-39838724b/",
-        image: "/src/imgs/LinkedIn Icon.jpg",
+        image: "/src/imgs/LinkedIn.png",
         web: "LinkedIn"
     },
-    tiktok: {
+    {
         link: "https://www.tiktok.com/@tomipmusic",
-        image: "/src/imgs/TikTok Icon.jpg",
+        image: "/src/imgs/TikTok.png",
         web: "TikTok"
     },
-})
+]
 </script>
 
 <style>
+.linktree_container{
+    display: flex;
+    justify-content: center;
+}
 .linktree{
     display: flex;
     gap: 10px;
     flex-direction: column;
     padding: 0;
+    width: 80%;
 }
 li{
     list-style-type: none;
@@ -106,8 +87,8 @@ li{
 
 .button_icon{
     display: flex;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     align-content: center;
     border: 2px solid rgb(170, 170, 170);
     border-radius: 30%;
@@ -124,5 +105,16 @@ li{
 
 .linktree li a:hover{
     background-color: rgb(170, 170, 170);
+}
+
+@media (max-width: 1221px) {
+    .linktree{
+    width: 87%;
+}
+}
+@media (max-width: 667px) {
+    .linktree{
+    width: 100%;
+}
 }
 </style>
