@@ -1,6 +1,6 @@
 <template>
     <div class="form_container">
-        <form action="">
+        <form :action="question">
         <div class="form_left">
             <label for="submit_question">Submit your question:</label>
             <input v-model="input" type="text" name="question" id="question" />
@@ -8,7 +8,7 @@
         </div>
 
         <div class="form_right">
-            <a :href="question" type="submit">SUBMIT QUESTION</a>
+            <button type="submit" >SUBMIT QUESTION</button>
         </div>
         </form>
     </div>
@@ -57,7 +57,7 @@ input[type=text]{
     margin-top: .5em;
 }
 
-a[type=submit] {
+button[type=submit] {
     background-color: black;
     border: none;
     display: flex;
